@@ -8,7 +8,7 @@
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
         public string MobileNumber { get; set; } = string.Empty;
-        public DateTime CreatedOn { get; set; }
+        public DateTime CreatedOn { get; set; } = DateTime.UtcNow;
 
         public UserType UserType { get; set; } = UserType.NONE;
         public AccountStatus AccountStatus { get; set; } = AccountStatus.UNAPROOVED;

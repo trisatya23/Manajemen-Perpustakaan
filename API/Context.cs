@@ -27,7 +27,7 @@ namespace API
                 AccountStatus = AccountStatus.ACTIVE,
                 UserType = UserType.ADMIN,
                 Password = "12345678",
-                CreatedOn = new DateTime(2023, 11, 01, 13, 28, 12)
+                CreatedOn = new DateTime()
             });
 
             modelBuilder.Entity<BookCategory>().HasData(
@@ -40,7 +40,8 @@ namespace API
             new BookCategory { Id = 7, Category = "mathematics", SubCategory = "calculus" },
             new BookCategory { Id = 8, Category = "mathematics", SubCategory = "algebra" });
 
-            modelBuilder.Entity<BookCategory>().HasData(
+
+            modelBuilder.Entity<Book>().HasData(
             new Book { Id = 1, BookCategoryId = 1, Ordered = false, Price = 100, Author = "Thomas Corman", Title = "Introduction to Algorithm" },
             new Book { Id = 2, BookCategoryId = 1, Ordered = false, Price = 100, Author = "Thomas Corman", Title = "Introduction to Algorithm" },
             new Book { Id = 3, BookCategoryId = 1, Ordered = false, Price = 200, Author = "Robert Sedgewick & Kevin Wayne", Title = "Algorithms" },
