@@ -13,6 +13,13 @@ builder.Services.AddDbContext<Context>(o =>
 {
     o.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
+builder.Services.AddCors(o =>
+{
+    o.AddPolicy("myCorsPolicy", policy =>
+    {
+        policy.WithOrigins("http://localhost:4200").AllowAnyHeader().AllowAnyMethod();
+    });
+});
 
 var app = builder.Build();
 
@@ -24,6 +31,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("myCorsPolicy");
 
 app.UseAuthorization();
 
